@@ -10,7 +10,7 @@ def busca_em_largura():
 
     tabuleiro = tabuleiro_inicial()  
     fronteira.append(estado_inicial)
-    print('Fronteira inicial:', fronteira)
+    
 
    
     posicionar_movimentar_agente(fronteira, tabuleiro, posicao_x, posicao_y)
