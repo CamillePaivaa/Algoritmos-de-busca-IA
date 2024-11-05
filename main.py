@@ -1,3 +1,8 @@
-from busca_largura import busca_em_largura
+from interface_grafica import menu_selecao_busca
+import pygame
+import sys
 
-busca_em_largura()
+
+menu_selecao_busca()
+
+    
