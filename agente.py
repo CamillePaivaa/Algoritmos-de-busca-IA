@@ -1,5 +1,6 @@
 from collections import deque
 
+
 def posicionar_movimentar_agente(codigo_busca, tabuleiro):
     agente = 2
     destino_x = 10
@@ -10,9 +11,7 @@ def posicionar_movimentar_agente(codigo_busca, tabuleiro):
     conjunto_explorado = []
     fronteira = deque()
     fronteira_sem_repeticao = set()  
-    num_passos = 0
-
-    tabuleiro[posicao_x][posicao_y] = agente  # Colocando o agente na posição inicial
+    tabuleiro[posicao_x][posicao_y] = agente  
     fronteira.append(estado_inicial)
 
     while (posicao_x, posicao_y) != (destino_x, destino_y):
@@ -26,16 +25,15 @@ def posicionar_movimentar_agente(codigo_busca, tabuleiro):
                  posicao_x, posicao_y = fronteira.pop()
         
             tabuleiro[posicao_x][posicao_y] = agente  
-            num_passos += 1
  
 
-        # Verificar as direções: cima, esquerda, direita, baixo
+        # Verificando as direções: cima, esquerda, direita, baixo
         posicao_acima = posicao_x - 1 
         posicao_esquerda = posicao_y - 1  
         posicao_direita = posicao_y + 1  
         posicao_baixo = posicao_x + 1  
 
-        # Adiciona as novas posições à fronteira, se válidas
+        # Adicionando as novas posições à fronteira, se válidas
         if posicao_acima >= 0 and tabuleiro[posicao_acima][posicao_y] == 1 and (posicao_acima, posicao_y) not in fronteira_sem_repeticao:
             fronteira.append((posicao_acima, posicao_y))
             fronteira_sem_repeticao.add((posicao_acima, posicao_y))
@@ -54,8 +52,11 @@ def posicionar_movimentar_agente(codigo_busca, tabuleiro):
     
         conjunto_explorado.append((posicao_x, posicao_y))
 
-    conjunto_explorado.append((destino_x, destino_y)) #adicionando o destino no conjunto explorado 
-    print('Número de Passos: ', num_passos)
+
+    conjunto_explorado.append((destino_x, destino_y)) 
+
     print('Conjunto explorado: ', conjunto_explorado) 
-    return conjunto_explorado  # Retorna o caminho percorrido
+
+    
+    return conjunto_explorado
 
