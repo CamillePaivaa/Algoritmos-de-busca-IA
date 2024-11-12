@@ -1,5 +1,5 @@
-from tabuleiro import tabuleiro_inicial
-from interface_grafica import animar_movimento
+from src.tabuleiro import tabuleiro_inicial
+from src.interface_grafica import animar_movimento
 
 def hill_climbing():
     x = 4

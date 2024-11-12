@@ -16,8 +16,8 @@ tipo_busca_selecionado = None
 def menu_selecao_busca():
     import pygame
     import sys
-    from busca_largura import busca_em_largura
-    from busca_profundidade import busca_em_profundidade
+    from src.busca_largura import busca_em_largura
+    from src.busca_profundidade import busca_em_profundidade
     global tipo_busca_selecionado
     
     pygame.init()
@@ -58,10 +58,11 @@ def menu_selecao_busca():
                     elif tipo_busca_selecionado == "Busca em Largura":
                         busca_em_largura()
                     elif tipo_busca_selecionado == "Sair":
+                        pygame.mixer.music.stop()
                         pygame.quit()
                         sys.exit()
                         
-                    pygame.mixer.music.stop()
+                    
                     pygame.time.wait(2000) 
                     mensagem_vitoria()
                     selected_option = 0
