@@ -19,7 +19,6 @@ def posicionar_movimentar_agente(codigo_busca, tabuleiro):
       
         if fronteira:
             if codigo_busca == 'busca_hill_climbing':
-                # Chama a função de Hill Climbing
                 caminho, sucesso = busca_hill_climbing(
                     tabuleiro, estado_inicial, (destino_x, destino_y), distancia_manhattan
                 )
@@ -33,15 +32,13 @@ def posicionar_movimentar_agente(codigo_busca, tabuleiro):
                  posicao_x, posicao_y = fronteira.pop()
         
             tabuleiro[posicao_x][posicao_y] = agente  
- 
 
-        # Verificando as direções: cima, esquerda, direita, baixo
         posicao_acima = posicao_x - 1 
         posicao_esquerda = posicao_y - 1  
         posicao_direita = posicao_y + 1  
         posicao_baixo = posicao_x + 1  
 
-        # Adicionando as novas posições à fronteira, se válidas
+
         if posicao_acima >= 0 and tabuleiro[posicao_acima][posicao_y] == 1 and (posicao_acima, posicao_y) not in fronteira_sem_repeticao:
             fronteira.append((posicao_acima, posicao_y))
             fronteira_sem_repeticao.add((posicao_acima, posicao_y))

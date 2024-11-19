@@ -29,14 +29,14 @@ def menu_selecao_busca():
     font = pygame.font.Font("./font/RockSalt-Regular.ttf", 25)  
     selected_option = 0
 
-    # Carregar e iniciar a música
+    
     pygame.mixer.music.load("./assets/music/Ori and the Blind Forest – Main Theme [Menu Music].mp3")
-    pygame.mixer.music.play(-1)  # -1 para tocar em loop
+    pygame.mixer.music.play(-1)  
 
     imagem_fundo = pygame.image.load("./assets/img/fundo.jpg") 
     imagem_fundo = pygame.transform.scale(imagem_fundo, (largura_tela, altura_tela))  
 
-    espaco_entre_botoes = 20  # Espaço entre os botões
+    espaco_entre_botoes = 20  
     altura_total_botoes = (len(opcoes_busca) * (font.get_height() + espaco_entre_botoes)) - espaco_entre_botoes
     button_start_y = (altura_tela - altura_total_botoes) // 2  
 
