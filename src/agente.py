@@ -18,6 +18,14 @@ def posicionar_movimentar_agente(codigo_busca, tabuleiro):
        
       
         if fronteira:
+            if codigo_busca == 'busca_hill_climbing':
+                # Chama a função de Hill Climbing
+                caminho, sucesso = busca_hill_climbing(
+                    tabuleiro, estado_inicial, (destino_x, destino_y), distancia_manhattan
+                )
+                if not sucesso:
+                    print("Busca falhou.")
+                return caminho
             if codigo_busca == 'busca_largura':
                 posicao_x, posicao_y = fronteira.popleft()  
            
@@ -60,3 +68,48 @@ def posicionar_movimentar_agente(codigo_busca, tabuleiro):
     
     return conjunto_explorado
 
+
+def busca_hill_climbing(tabuleiro, inicio, objetivo, heuristica):
+
+    posicao_atual = inicio
+    caminho = [posicao_atual]
+    linhas = len(tabuleiro)
+    colunas = len(tabuleiro[0])
+
+    while posicao_atual != objetivo:
+        linha, coluna = posicao_atual
+        vizinhos = [
+            (linha - 1, coluna),  # Cima
+            (linha + 1, coluna),  # Baixo
+            (linha, coluna - 1),  # Esquerda
+            (linha, coluna + 1)   # Direita
+        ]
+
+        vizinhos_validos = [
+            (l, c) for l, c in vizinhos
+            if 0 <= l < linhas and 0 <= c < colunas and tabuleiro[l][c] == 1
+        ]
+
+        
+        proximo = None
+        melhor_heuristica = float('inf')
+        for vizinho in vizinhos_validos:
+            h = heuristica(vizinho, objetivo)
+            if h < melhor_heuristica:
+                melhor_heuristica = h
+                proximo = vizinho
+
+        
+        if proximo is None or melhor_heuristica >= heuristica(posicao_atual, objetivo):
+            print("Busca falhou: nenhum vizinho melhora a heurística.")
+            return caminho, False
+
+
+        posicao_atual = proximo
+        caminho.append(posicao_atual)
+
+    return caminho, True
+
+
+def distancia_manhattan(p1, p2):
+    return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])

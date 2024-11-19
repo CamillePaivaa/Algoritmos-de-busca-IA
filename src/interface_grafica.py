@@ -10,12 +10,13 @@ altura_tela = 600
 
 
 
-opcoes_busca = ["Busca em Profundidade", "Busca em Largura","Sair"]
+opcoes_busca = ["Busca em Profundidade", "Busca em Largura","Hill Climb","Sair"]
 tipo_busca_selecionado = None
 
 def menu_selecao_busca():
     import pygame
     import sys
+    from src.hill_climb import busca_hill_climbing
     from src.busca_largura import busca_em_largura
     from src.busca_profundidade import busca_em_profundidade
     global tipo_busca_selecionado
@@ -57,6 +58,8 @@ def menu_selecao_busca():
                         busca_em_profundidade()
                     elif tipo_busca_selecionado == "Busca em Largura":
                         busca_em_largura()
+                    elif tipo_busca_selecionado == "Hill Climb":
+                        busca_hill_climbing()
                     elif tipo_busca_selecionado == "Sair":
                         pygame.mixer.music.stop()
                         pygame.quit()
@@ -64,7 +67,7 @@ def menu_selecao_busca():
                         
                     
                     pygame.time.wait(2000) 
-                    mensagem_vitoria()
+                    if tipo_busca_selecionado != "Hill Climb": mensagem_vitoria()
                     selected_option = 0
 
         tela.fill((0, 0, 0))  
