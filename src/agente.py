@@ -76,10 +76,10 @@ def busca_hill_climbing(tabuleiro, inicio, objetivo, heuristica):
     while posicao_atual != objetivo:
         linha, coluna = posicao_atual
         vizinhos = [
-            (linha - 1, coluna),  # Cima
-            (linha + 1, coluna),  # Baixo
-            (linha, coluna - 1),  # Esquerda
-            (linha, coluna + 1)   # Direita
+            (linha - 1, coluna),  
+            (linha + 1, coluna),  
+            (linha, coluna - 1), 
+            (linha, coluna + 1)   
         ]
 
         vizinhos_validos = [
