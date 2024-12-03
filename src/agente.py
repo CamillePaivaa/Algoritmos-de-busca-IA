@@ -57,8 +57,8 @@ def posicionar_movimentar_agente(codigo_busca, tabuleiro):
     
         conjunto_explorado.append((posicao_x, posicao_y))
 
-
-    conjunto_explorado.append((destino_x, destino_y)) 
+    if (destino_x, destino_y) not in conjunto_explorado:
+     conjunto_explorado.append((destino_x, destino_y)) 
 
     print('Conjunto explorado: ', conjunto_explorado) 
 

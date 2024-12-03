@@ -134,6 +134,7 @@ def animar_movimento(caminho):
                 return
         
         tela.fill((129,164,205)) 
+        
         desenhar_tabuleiro(tela, pos, num_passos)  
         num_passos = num_passos + 1
         pygame.display.update()  
