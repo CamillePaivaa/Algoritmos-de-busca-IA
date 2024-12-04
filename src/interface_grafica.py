@@ -68,6 +68,7 @@ def menu_selecao_busca():
                     
                     pygame.time.wait(2000) 
                     if tipo_busca_selecionado != "Hill Climb": mensagem_vitoria()
+                    if tipo_busca_selecionado == "Hill Climb": mensagem_derrota()
                     selected_option = 0
 
         tela.fill((0, 0, 0))  
@@ -143,6 +144,16 @@ def animar_movimento(caminho):
 def mensagem_vitoria():
     font = pygame.font.Font("./font/RockSalt-Regular.ttf", 30)
     vitoria_text = font.render("Parabéns, você venceu!", True, (255, 255, 255))
+    tela = pygame.display.get_surface()
+    tela.fill((0, 0, 0)) 
+    tela.blit(vitoria_text, (largura_tela // 2 - vitoria_text.get_width() // 2, altura_tela // 2))
+    pygame.display.flip()
+    pygame.time.wait(2000)  
+
+
+def mensagem_derrota():
+    font = pygame.font.Font("./font/RockSalt-Regular.ttf", 20)
+    vitoria_text = font.render("Busca falhou: nenhum vizinho melhora a heurística.", True, (255, 255, 255))
     tela = pygame.display.get_surface()
     tela.fill((0, 0, 0)) 
     tela.blit(vitoria_text, (largura_tela // 2 - vitoria_text.get_width() // 2, altura_tela // 2))
