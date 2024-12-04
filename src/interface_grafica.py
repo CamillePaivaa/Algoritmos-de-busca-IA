@@ -153,7 +153,7 @@ def mensagem_vitoria():
 
 def mensagem_derrota():
     font = pygame.font.Font("./font/RockSalt-Regular.ttf", 20)
-    vitoria_text = font.render("Busca falhou: nenhum vizinho melhora a heurística.", True, (255, 255, 255))
+    vitoria_text = font.render("Busca falhou!", True, (255, 255, 255))
     tela = pygame.display.get_surface()
     tela.fill((0, 0, 0)) 
     tela.blit(vitoria_text, (largura_tela // 2 - vitoria_text.get_width() // 2, altura_tela // 2))

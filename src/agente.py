@@ -98,7 +98,7 @@ def busca_hill_climbing(tabuleiro, inicio, objetivo, heuristica):
 
         
         if proximo is None or melhor_heuristica >= heuristica(posicao_atual, objetivo):
-            print("Busca falhou: nenhum vizinho melhora a heurística.")
+            print("Busca falhou!")
             return caminho, False
 
 
