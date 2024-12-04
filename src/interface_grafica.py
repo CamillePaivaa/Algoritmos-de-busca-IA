@@ -152,7 +152,7 @@ def mensagem_vitoria():
 
 
 def mensagem_derrota():
-    font = pygame.font.Font("./font/RockSalt-Regular.ttf", 20)
+    font = pygame.font.Font("./font/RockSalt-Regular.ttf", 30)
     vitoria_text = font.render("Busca falhou!", True, (255, 255, 255))
     tela = pygame.display.get_surface()
     tela.fill((0, 0, 0)) 
